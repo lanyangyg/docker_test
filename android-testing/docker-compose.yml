@@ -1,0 +1,14 @@
+services:
+  jenkins-android:
+    image: jenkins-with-android:latest  # 使用原有镜像
+    container_name: jenkins-android
+    ports:
+      - "8081:8080"  # 使用不同端口
+      - "50001:50000"
+    volumes:
+      - jenkins_android_data:/var/jenkins_home
+    restart: unless-stopped
+
+volumes:
+  jenkins_android_data:
+    name: jenkins-android-data  # 唯一卷名

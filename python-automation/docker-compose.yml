@@ -1,0 +1,15 @@
+services:
+  jenkins-python:
+    image: jenkins-with-python:latest
+    container_name: jenkins-python
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_python_data:/var/jenkins_home
+    restart: unless-stopped
+
+volumes:
+  jenkins_python_data:
+    external: true
+    name: my-docker-project_jenkins_home  # 使用您原有的卷名
